@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:1.2.4'
+    }
+}
+
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+dependencies {
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'com.auth0:java-jwt:2.1.0'
+    compile 'org.json:json:20090211'
+}
+
+gretty {
+    port = 5000
+    contextPath = '/'
+}
